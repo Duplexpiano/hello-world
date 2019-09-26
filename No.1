@@ -1,0 +1,90 @@
+#include <stdio.h>
+
+int main()
+{
+	int n = 0, i;
+	scanf("%d", &n);
+	
+	int a, b, c;
+	scanf("%d %d %d", &a, &b, &c);
+	
+	for( i = 0; i < n; i++ )
+	{
+		
+		if( a == 1)
+		{
+			
+			if( b < 201 )
+			{
+				if( b > 130 )
+				{
+					printf("ni li hai!");
+				}
+				else if( b == 130)
+				{
+					printf("wan mei!");
+				}
+				else if( b < 130 )
+				{
+					printf("duo chi yu!");
+				}
+			}
+			
+			else if( c < 201 )
+			{
+			
+				if( c > 27 )
+				{
+					printf("shao chi rou!\n");
+				}
+				else if( c == 27 )
+				{
+					printf("wan mei!");
+				}
+				else if( c < 27 )
+				{
+					printf("duo chi rou!");
+				}
+			}
+			
+		}
+		else
+		{
+			if( b < 201 )
+			{
+				if( b > 129 )
+				{
+					printf("ni li hai!");
+				}
+				else if( b == 129)
+				{
+					printf("wan mei!");
+				}
+				else if( b < 129 )
+				{
+					printf("duo chi yu!");
+				}
+			}
+			
+			else if( c < 201 )
+			{
+			
+				if( c > 25 )
+				{
+					printf("shao chi rou!\n");
+				}	
+				else if( c == 25 )
+				{
+					printf("wan mei!\n");
+				}
+				else if( c < 25 )
+				{
+					printf("duo chi rou!\n");
+				}
+			}
+		}
+		scanf("%d %d %d", &a, &b, &c);
+	}
+	
+	return 0;
+}
