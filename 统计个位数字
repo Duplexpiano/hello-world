@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int Count_Digit ( const int N, const int D );
+
+int main()
+{
+    int N, D;
+	
+    scanf("%d %d", &N, &D);
+    printf("%d\n", Count_Digit(N, D));
+    return 0;
+}
+int Count_Digit ( const int N, const int D )
+{
+    int n1, n2, mask = 1, temp1, temp2, cnt = 0;
+    n1 = N;
+    if(n1 < 0)   n1 = -n1;
+    n2 = n1;
+    while(n1 > 9)
+    {
+        n1 /= 10;
+        mask *= 10;
+    }
+    temp2 = n2;
+    while(mask)
+    {
+        temp1 = temp2/mask;
+        temp2 = n2%mask;
+        mask /= 10;
+        if(temp1 == D)  cnt++;
+    }
+    return cnt;
+}
