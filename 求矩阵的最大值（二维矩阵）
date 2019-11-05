@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main()
+{
+    int h, l, i, j, m, n, temp;
+    int a [6] [6];
+    scanf("%d %d", &m, &n);
+    if(m >= 1 && n <= 6 && m <= 6 && n >= 1)
+    {
+        for(i = 0; i < m; i++)
+        {
+            for(j = 0; j < n; j++)
+                scanf("%d", &a [i][j]);
+        }
+        h = l = 0;
+        for(i = 0; i < m; i++)
+        {
+            for(j = 0; j < n; j++)
+                if(a [i][j] > a [h][l])
+                {
+                    h = i;
+                    l = j;
+                }
+        }
+    }
+    printf("%d\n%d %d\n", a [h][l], h, l);
+    return 0;
+}
