@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main()
+{
+    int year, month , day, k, leap;
+    int tab[2][13] = {
+        {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
+        {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+    };
+
+    scanf("%d/%d/%d", &year, &month, &day);
+    leap = (year%4 == 0 && year%100 != 0 || year%400 == 0);
+
+    for(k = 0; k < month; k++)
+        day = day + tab[leap][k];
+
+    printf("%d\n", day);
+    return 0;
+}
