@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main()
+{
+    char a [80] = {0}, c = 'a', ch;
+    int i = 0, cnt = 0, index = -1;
+    scanf("%c\n", &c);//'\n'是关键！！！
+    ch = getchar();
+    for(i = 0; ch != '\n'; i++){
+        a [i] = ch;
+        cnt++;
+        ch = getchar();
+    }
+    for (i = 0; i < cnt; i++)
+        if(a [i] == c)
+            index = i;
+    if(index != -1) printf("index = %d\n", index);
+    else    printf("Not Found\n");
+    return 0;
+}
