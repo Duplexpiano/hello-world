@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    char a[80];
+    int i = 0, k = 0, j = 0, n = 0;
+    while ( (a[k] = getchar()) != '\n'){
+        k++;
+        n++;
+    }
+    a[k] = '\0';
+    k--;
+    while(i < k){
+        if(a[i] != a[k])
+            break;
+        i++;
+        k--;
+    }
+    if(i >= k){
+        for(j = 0; j < n; j++)
+            putchar(a[j]);
+        printf("\n");
+        printf("Yes\n");
+    }
+    else{
+        for(j = 0; j < n; j++)
+            putchar(a[j]);
+        printf("\n");
+        printf("No\n");
+    }
+    return 0;
+}
