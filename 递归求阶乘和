@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+double fact( int n );
+double factsum( int n );
+
+int main()
+{
+    int n;
+
+    scanf("%d",&n);
+    printf("fact(%d) = %.0f\n", n, fact(n));
+    printf("sum = %.0f\n", factsum(n));
+		
+    return 0;
+}
+double fact( int n )
+{
+    double ret;
+    if(n == 1|| n == 0)   ret = 1;
+    else ret = n*fact(n - 1);
+    return ret;
+}
+double factsum( int n )
+{
+    double sum;
+    if(n < 1)   sum = 0;
+    else sum = fact(n) + factsum(n-1);
+    return sum;
+}
