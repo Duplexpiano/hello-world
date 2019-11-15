@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+    int man, lady, kid, n, i, k, j;
+    scanf("%d", &n);
+    if(n < 3)   printf("None");
+    else
+    {
+        for(i=0;i<=n/3;i++)
+        {
+            for(k=0;k<=n/2;k++)
+            {
+                for(j=0;j<=n;j++)
+                {
+                    if(i+j+k==n&&3*i+2*k+j/2.0==n)
+                    {
+                        printf("men = %d, women = %d, child = %d\n",i,k,j);
+                    }
+                }
+            }
+        }
+    }
+    return 0;
+}
