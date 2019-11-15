@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, i, j, max, min;
+    scanf("%d", &n);
+    int a[n][n], line[n], column[n];
+    for(i = 0; i < n; i++)
+    {
+        max = a[i][0];
+        for(j = 0; j < n; j++)
+        {
+            scanf("%d", &a[i][j]);
+            if(max < a[i][j])   max = a[i][j];
+        }
+        line[i] = max;
+    }
+    for(j = 0; j < n; j++)
+    {
+        min = a[0][j];
+        for(i = 0; i < n; i++)
+            if(min > a[i][j])   min = a[i][j];
+        column[j] = min;
+    }
+    for(i = 0; i < n; i++)
+    {
+        for(j = 0; j < n; j++)
+        {
+            if(line[i] == column[j]){
+                printf("%d %d", i, j);
+                return 0;
+            }
+        }
+    }
+    if(i == n)  printf("None\n");
+    return 0;
+}
