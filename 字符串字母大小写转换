@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main()
+{
+    int i = 0, k;
+    char a[30] = {'a'};
+    while((a[i] = getchar()) != '#')    i++;
+    for(i = 0; a[i] != '#'; i++)
+    {
+        if(a[i] >= 'a'&& a[i] <= 'z')
+            a[i] = a[i] - 'a' + 'A';
+        else if(a[i] >= 'A'&& a[i] <= 'Z')
+            a[i] = a[i] - 'A' + 'a';
+        putchar(a[i]);
+    }
+    return 0;
+}
