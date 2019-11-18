@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main()
+{
+    int i = 0, n, j = 0;
+    char a[80] = {'a'}, ch;
+    while((a[i] = getchar()) != '\n')   i++;
+    n = i;
+    for(i = 0; i < n-1; i++)
+        for(j = i+1; j < n; j++)
+        {
+            if(a[i] > a[j])
+            {
+                ch = a[i];
+                a[i] = a[j];
+                a[j] = ch;
+            }
+        }
+    printf("%s", a);
+    return 0;
+}
