@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+#define N 80
+int main()
+{
+    int i, n;
+    char sx[N], smin[N];
+    scanf("%d", &n);
+    scanf("%s", sx);
+    strcpy(smin, sx);
+    for(i = 1; i < n; i++) {
+        scanf("%s", sx);
+        if(strcmp(sx, smin) < 0)
+            strcpy(smin, sx);
+    }
+    printf("Min is:%s\n", smin);
+    return 0;
+}
