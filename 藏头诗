@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main()
+{
+	int i, j = 0;
+	char poem[4][30], mean[10];
+	for(i = 0; i < 4; i++)
+		scanf("%s", &poem[i]);
+	for(i = 0; i < 4; i++) {
+		mean[j++] = poem[i][0];
+		mean[j++] = poem[i][1];
+	}
+	mean[j] = '\0';
+	printf("%s", mean);
+	return 0;
+}
