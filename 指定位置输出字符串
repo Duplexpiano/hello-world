@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+#define MAXS 10
+
+char *match( char *s, char ch1, char ch2 );
+
+int main()
+{
+    char str[MAXS], ch_start, ch_end, *p;
+
+    scanf("%s\n", str);
+    scanf("%c %c", &ch_start, &ch_end);
+    p = match(str, ch_start, ch_end);
+    printf("%s\n", p);
+
+    return 0;
+}
+
+char *match( char *s, char ch1, char ch2 ) 
+{ 
+    int i = 0;
+    char *p; 
+    for(; i < strlen(s) && s[i] != ch1; i++); 
+    p = &s[i];      //保存起始位置的首地址
+    for(; i < strlen(s); i++) 
+  { 
+    printf("%c", s[i]);//从起始位置开始输出知道结尾
+    if(s[i] == ch2)
+    break; 
+  } 
+    printf("\n"); 
+    return p;
+}
