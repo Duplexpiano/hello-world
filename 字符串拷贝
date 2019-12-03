@@ -1,0 +1,52 @@
+#include "stdio.h"
+#define N 10
+#define M 20
+
+int my_strcpy_s(char str1[],int x,char str2[]);
+
+void readline(char a[],int n)
+{
+  char ch;
+  int i=0;
+  while((ch=getchar())!='\n' && i<n-1)
+   a[i++]=ch;
+  a[i]='\0';
+  return ;   
+}
+
+int main()
+ {char a[N],b[M];
+ readline(a,N);
+ readline(b,M);
+  if(!my_strcpy_s(a,N,b))
+    puts("error!");
+  puts(a);
+  return 0;
+ }
+
+int my_strcpy_s(char str1[],int x,char str2[])
+{
+  int i = 0, j = 0, m, n = 0;
+  while(str1[i] != '\0')	i++;
+  while(str2[j] != '\0')	j++;
+  j--;
+  if(x >= j)
+  {
+    for(m = 0; m <= j; m++)
+    {
+      str1[m] = str2[n];
+      n++;
+    }
+    str1[j+1] = '\0';
+    return 1;
+  } else
+  {
+    for(m = 0; m < N-1; m++)
+    {
+      str1[m] = str2[n];
+      n++;
+    }
+    str1[N-1] = '\0';
+    return 0;
+  }
+}
