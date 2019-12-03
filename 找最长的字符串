@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main(){
+	int n, i;
+	char str[1000];
+	char longest[1000]; 
+	scanf("%d", &n);
+	getchar();
+	for(i = 0; i < n; i++){
+		gets(str);
+		if(i == 0)
+			strcpy(longest, str);
+		else if(strlen(longest) < strlen(str))
+			strcpy(longest,str);
+	}
+	printf("The longest is: %s\n",longest);
+	return 0;
+}
