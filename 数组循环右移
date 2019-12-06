@@ -30,5 +30,5 @@ int ArrayShift( int a[], int n, int m )
             a[i] = a[i-1];
         a[0] = temp;
     }
-    return a;
+    return *a;
 }
