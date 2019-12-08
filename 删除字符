@@ -1,0 +1,33 @@
+#include <stdio.h>
+#define MAXN 20
+
+void delchar( char *str, char c );
+void ReadString( char s[] ); /* 由裁判实现，略去不表 */
+
+int main()
+{
+    char str[MAXN], c;
+
+    scanf("%c\n", &c);
+    ReadString(str);
+    delchar(str, c);
+    printf("%s\n", str);
+
+    return 0;
+}
+void ReadString( char s[] ){
+    int i = 0;
+    while((s[i] = getchar()) != '\n')
+        i++;
+    s[i] = '\0';
+}
+void delchar( char *str, char c ){
+    int i, j, t = 1;
+    for(i = MAXN-1; i >= 0; i--) {
+        if(str[i] == c) {
+            for(j = i; j < MAXN-t; j++)
+                str[j] = str[j+1];
+            t++;
+        }
+    }
+}
