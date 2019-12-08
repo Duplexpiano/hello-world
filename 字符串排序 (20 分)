@@ -7,7 +7,7 @@ int main()
     char str[M][N], tmp[N];
     int i, j;
     for(i = 0; i < M; i++)
-    	scanf("%s", &str[i]);
+    	scanf("%s", str[i]);
     for(i = 1; i < M; i++){
         for(j = 0; j < M-i; j++){
             if(strcmp(str[j], str[j+1]) > 0){
