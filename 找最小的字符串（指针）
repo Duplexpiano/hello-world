@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <string.h>
+#define MAXN 80
+int main()
+{
+    int n, i;
+    char s[MAXN], b[MAXN] = {'z'};
+    scanf("%d", &n);
+    while(n--) {
+        scanf("%s", s);
+        if (strcmp(b, s) > 0)
+            strcpy(b, s);
+    }
+    printf("Min is: %s", b);
+    return 0;
+}
