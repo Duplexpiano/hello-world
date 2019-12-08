@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#define MAXN 33
+int main(int argc, char **argv) {
+    char ip[MAXN];
+    int i, j = 1, k = 0, len, sum[5] = {0};
+    scanf("%s", ip);
+    len = strlen(ip);
+    for(i = 0; i < len; i++) {
+        if(i%8 == 0) {
+            j = 1;
+            k++;
+        }
+        if(ip[i] == '1') {
+            sum[k] = sum[k] + pow(2, 8-j);
+        }
+        j++;
+    }
+    printf("%d.%d.%d.%d", sum[1], sum[2], sum[3], sum[4]);
+    return 0;
+}
