@@ -1,0 +1,18 @@
+#include <stdio.h>
+struct stuff {
+    char name[10];
+    float bp, fp, ep;
+    double np;
+};
+int main()
+{
+    int i, n;
+    struct stuff stuffs[1000];
+    scanf("%d", &n);
+    for(i = 0; i < n; i++) {
+        scanf("%s %f %f %f", stuffs[i].name, &stuffs[i].bp, &stuffs[i].fp, &stuffs[i].ep);
+        stuffs[i].np = stuffs[i].bp + stuffs[i].fp - stuffs[i].ep;
+        printf("%s %.2f\n", stuffs[i].name, stuffs[i].np);
+    }
+    return 0;
+}
