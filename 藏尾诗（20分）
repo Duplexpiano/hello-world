@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+int main()
+{
+	char* p[4], str[20];
+	int i, n;
+	for (i = 0; i < 4; i++) {
+		gets(str);
+		p[i] = (char*)malloc(sizeof(str) + 1);
+		strcpy(p[i], str);
+	}
+	for (i = 0; i < 4; i++){
+		n = strlen(p[i]);
+		printf("%s", p[i] + n - 2);
+	}
+	return 0;
+}
