@@ -40,7 +40,7 @@ char *search(char *s, char *t) {
             // 内循环因字符不等而退出，且子串未走到结束标志处，继续比较
             pos++;
             p = pos;
-            q = t;
+            q = t;//重新让指针变量q指向字符串t的首地址
         }
         else
             break;// 已找到,跳出外循环
