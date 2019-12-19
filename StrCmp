@@ -1,0 +1,20 @@
+
+#include <stdio.h>
+
+int MyStrCmp(const char *str1, const char *str2);
+
+int main()
+{
+    char a[1024], b[1024];
+    int r;
+    while(~scanf("%s%s",a,b)) 
+	{
+    	r = MyStrCmp(a, b);
+    	puts(!r ? "a = b" : r > 0 ? "a > b" : "a < b");
+	}
+    return 0;
+}
+int MyStrCmp(const char *str1, const char *str2) {
+	for(;*str1 == *str2&& *str1; str1++, str2++);
+	return *str1-*str2;
+}
