@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+	int f5, f2, f1, n;
+	scanf("%d", &n);
+	for(f5 = 1; f5 <= n; f5++)
+		for(f2 = 1; f2 < 100; f2++)
+			for(f1 = 1; f1 < 100; f1++)
+				if(f5+f2+f1 == 100&&f5*5+f2*2+f1 == 150)
+					printf("%d %d %d\n", f5, f2, f1);
+	return 0;
+}
