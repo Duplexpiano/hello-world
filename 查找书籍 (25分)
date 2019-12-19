@@ -1,0 +1,28 @@
+#include <stdio.h>
+typedef struct book{
+	char name[31];
+	double price;
+}book;
+int main()
+{
+	int n, i, max = 0, min = 0;
+	book *p;
+	scanf("%d", &n);
+	getchar();//吃掉多输入的\n 
+	p = (book*)malloc(sizeof(book)*n);//动态存储 
+	for(i = 0; i < n; i++) {
+		gets(p[i].name);
+		scanf("%lf", &p[i].price);
+		getchar();
+	}
+	for(i = 1; i < n; i++) {
+		if(p[max].price < p[i].price)
+			max = i;
+		if(p[min].price > p[i].price)
+			min = i;
+	}
+    printf("%.2f, %s\n",p[max].price,p[max].name);
+    printf("%.2f, %s\n",p[min].price,p[min].name);
+    free(p);//释放存储空间 
+	return 0;
+}
