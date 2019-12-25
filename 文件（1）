@@ -1,0 +1,92 @@
+/*程序1实现的功能如下：
+
+1. 输入学生数据，并保存。
+
+2. 打开学生数据文件，显示学生信息。
+
+3. 退出。*/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#define N 50
+typedef struct STU {
+	int ID;
+	char name[8];
+	char birth[12];
+	char grade[12];
+} STU;
+int input(FILE *fp);
+void read(FILE *fp, int x);
+void sort(STU stu[], int n);
+int main()
+{
+	FILE* fp;
+	int choice, x;
+	printf("Please input you choice:\n");
+	printf("1.Input student information\n");
+	printf("2.Read student information\n");
+	printf("3.Exit\n");
+	while (1) {
+		scanf("%d", &choice);
+		switch (choice) {
+		case 1:
+			if ((fp = fopen("stu.txt", "w+")) == NULL) {
+				printf("File open error!\n");
+				exit(0);
+			}
+			x = input(fp);
+			break;
+		case 2: read(fp, x); break;
+		case 3: return 0;
+		}
+	}
+	return 0;
+}
+int input(FILE *fp) {
+	int i, num, cnt;
+	STU stu[N];
+	printf("Please input the count of student:\n");
+	scanf("%d", &num);
+	cnt = num;
+	printf("Please input information of student:\n");
+	for (i = 0; i < num; i++)
+		scanf("%d%s%s%s", &stu[i].ID, stu[i].name, stu[i].birth, stu[i].grade);
+	sort(stu, num);
+	for (i = 0; i < num; i++) {
+		fprintf(fp, "%d %s %s %s\n", stu[i].ID, stu[i].name, stu[i].birth, stu[i].grade);
+	}
+	if (fclose(fp)) {
+		printf("Can not close the file!\n");
+		exit(0);
+	}
+	return cnt;
+}
+void read(FILE *fp, int x) {
+	fp = fopen("stu.txt", "r+");
+	int i, ID;
+	char sname[8], sbirth[12], sgrade[12];
+	if (fp == NULL) {
+		printf("File open error!\n");
+		exit(0);
+	}
+	for (i = 0; i < x; i++) {
+		fscanf(fp, "%d%s%s%s", &ID, sname, sbirth, sgrade);
+		printf("%d %s %s %s\n", ID, sname, sbirth, sgrade);
+	}
+	if (fclose(fp)) {
+		printf("Can not close the file!\n");
+		exit(0);
+	}
+}
+void sort(STU stu[], int n) {
+	int i, j;
+	STU temp;
+	for(i = 0; i < n; i++)
+		for (j = 1; j < n - i; j++) {
+			if (stu[j].ID > stu[j - 1].ID) {
+				temp = stu[j];
+				stu[j] = stu[j - 1];
+				stu[j - 1] = temp;
+			}
+		}
+}
