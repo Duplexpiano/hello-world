@@ -1,0 +1,50 @@
+/*程序2实现功能如下：
+1）用键盘输入若干个整数，以二进制文件的形式保存在数据文件d.dat中。
+2）用键盘输入一个整数，在文件中找出该整数并输出位置（处在第几个数），若找不到则输出“NOT FOUND!”.
+3）采用命令行带参数的形式，实现2）的查找功能。*/
+#include <stdio.h>
+void input();
+void search();
+int main() {
+	int a;
+	while (1) {
+		printf("1.输入整数并保存到文件\n2.打开文件并查找\n3.退出\n" );
+		scanf("%d", &a);
+		if (a == 1)
+			input();
+		else if (a == 2)
+			search();
+		else if (a == 3)
+		break;
+	}
+	return 0;
+}
+void input() {
+	int a, count = 0;
+	FILE* fp = fopen("data.dat", "ab");
+	printf("请输入若干个整数，每个整数间用空格间隔，输入键盘结束符结束\n" );
+	scanf("%d", &a);
+	while (a != -1) {
+		count++;
+		fwrite(&a, sizeof(int), 1, fp);
+		scanf("%d", &a);
+	}
+	fclose(fp);
+	printf("成功输入%d个数字\n", count);
+}
+void search() {
+	int a, count = 0, flag = 0;
+	int n;
+	printf("请输入要查找的数字\n");
+	scanf("%d", &n);
+	FILE* fp = fopen("data.dat", "rb");
+	while (fread(&a, sizeof(int), 1, fp)) {
+		count++;
+		if (a == n) {
+			printf("%d位于第%d个数\n", a, count);
+			flag = 1;
+		}
+	}
+	if (flag == 0)
+		printf("Not Found\n");
+}
