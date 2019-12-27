@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-	int a = 1, b = 1, n, t = 1, i = 2;
+	int a = 1, b = 1, n, t = 1, i = 2;//i是月数，n是兔子对数， t是实时兔子对数
 	scanf("%d",&n);
 	if(n == 1)
 		printf("1");
@@ -16,3 +16,4 @@ int main()
 	}
 	return 0;
 }
+/*Fibonacci数列就是满足任一项数字是前两项的和（最开始两项均定义为1）的数列。*/
