@@ -1,0 +1,15 @@
+#include <stdio.h>
+#define MAXN 100000
+int main()
+{
+    int n, i;
+    double a[MAXN], x;
+    scanf("%d %lf", &n, &x);
+    for(i = n; i >= 0; i-- )
+        scanf("%lf", &a[i]);
+    double ret = a[n];
+    for(i = n; i > 0; i--)
+        ret = a[i-1] + ret*x;
+    printf("%.3f\n", ret);
+    return 0;
+}
