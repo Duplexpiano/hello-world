@@ -1,6 +1,24 @@
 #include <stdio.h>
 #include <windows.h>
+void PrintHeart();
 int main() {
+    char sx;
+    system("color 80");
+    printf("\n\n\n\t\t输入你的选择:\n");
+    printf("\n\n\n\t\tA.选B\n");
+    printf("\n\n\n\t\tB.选A\n\n\n\t\t");
+    scanf("%c", &sx);
+    if (sx == 'A') {
+        system("cls");
+        PrintHeart();
+    }
+    else if (sx == 'B') {
+        system("cls");
+        PrintHeart();
+    }
+    return 0;
+}
+void PrintHeart() {
     system("color 7C");
     for (float y = 1.5f; y > -1.5f; y -= 0.1f) {
         for (float x = -1.5f; x < 1.5f; x += 0.05f) {
