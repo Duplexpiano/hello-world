@@ -1,0 +1,76 @@
+#include <stdio.h>
+#define MAXSIZE 100
+typedef struct {
+	int data[MAXSIZE];
+	int length;
+}Set;
+
+void createSet(Set& s, int n);
+void printSet(Set s);
+bool inset(Set s, int e);
+void add(Set s1, Set s2, Set& s3);
+void sub(Set s1, Set s2, Set& s3);
+void intersection(Set s1, Set s2, Set& s3);
+void main()
+{
+	Set s1, s2, s3;
+	int n1, n2, i;
+	scanf("%d %d", &n1, &n2);
+	createSet(s1, n1);
+	createSet(s2, n2);
+	intersection(s1, s2, s3);
+	printSet(s3);
+	return;
+}
+void createSet(Set& s, int n) {
+	int i;
+	for (i = 0; i < n; i++)
+		scanf("%d", &s.data[i]);
+	s.length = n;
+}
+void printSet(Set s) {
+	int i;
+	for (i = 0; i < s.length; i++) {
+		if (i == s.length - 1)
+			printf("%d", s.data[i]);
+		else
+			printf("%d ", s.data[i]);
+	}
+	printf("\n");
+}
+bool inset(Set s, int e) {
+	int i;
+	for (i = 0; i < s.length; i++)
+		if (s.data[i] == e)
+			return true;
+	return false;
+}
+void add(Set s1, Set s2, Set& s3) {
+	int i;
+	for (i = 0; i < s1.length; i++)
+		s3.data[i] = s1.data[i];
+	s3.length = s1.length;
+	for (i = 0; i < s2.length; i++)
+		if (!inset(s1, s2.length)) {
+			s3.data[s3.length] = s2.data[i];
+			s3.length++;
+		}
+}
+void sub(Set s1, Set s2, Set& s3) {
+	int i;
+	s3.length = 0;
+	for (i = 0; i < s1.length; i++)
+		if (!inset(s2, s1.data[i])) {
+			s3.data[s3.length] = s1.data[i];
+			s3.length++;
+		}
+}
+void intersection(Set s1, Set s2, Set& s3) {
+	int i;
+	s3.length = 0;
+	for (i = 0; i < s1.length; i++)
+		if (inset(s2, s1.data[i])) {
+			s3.data[s3.length] = s1.data[i];
+			s3.length++;
+		}
+}
