@@ -11,14 +11,8 @@ int main()
 
     return 0;
 }
-void dectobin( int n )
-{
-    int ret = 0;
-    if(n == 0) printf("0");
-    else if(n == 1) printf("1");
-    else {
-        ret += n%2;
-        dectobin(n/2);
-        printf("%d", ret);
-    }
+void dectobin(int n) {
+    if (n / 2 > 0)
+        dectobin(n / 2);
+    printf("%d", n % 2);
 }
